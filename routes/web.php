@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MeetingtestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/building',function(){
-    return '建物です';
-});
-Route::get('/building/{room}',function($room){
-    return '部屋番号は'.$room.'です';
-});
+Route::get('/',[MeetingtestController::class,'index']);
+Route::get('/send',[MeetingtestController::class,'send']);
+Route::post('/send',[MeetingtestController::class,'send']);
